@@ -166,7 +166,8 @@
 ## 立即开始
 
 1. 读 [01-心态](01-mindset/mindset.md)
-2. 选择一个平台开始 → [10-platforms](10-platforms/)
-3. 用 [12-工具栈](12-tools/stack.md) 搭建环境
-4. 跟着 [11-工作流](11-workflow/workflow.md) 走完第一个产品
+2. **走 [环节路线](../phases/README.md)**：从验证需求到上线变现的 8 个环节（推荐主线）
+3. 选择一个平台深入 → [10-platforms](10-platforms/)
+4. 用 [12-工具栈](12-tools/stack.md) 搭建环境
+5. 跟着 [11-工作流](11-workflow/workflow.md) 安排你的时间
 

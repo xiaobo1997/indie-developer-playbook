@@ -246,14 +246,14 @@ wx.cloud.callFunction({
 ## 限制
 
 ### 个人主体
-- ❌ 微信支付
-- ❌ 流量主广告
+- ❌ 微信支付（变现路径见 [phases/08-iterate](../../../phases/08-iterate/README.md)）
+- ✅ 流量主广告：个人主体可开通，条件是累计独立访客（UV）达到平台门槛（以后台要求为准）——这是个人小程序唯一的原生变现通道
 - ❌ 部分类目
 - ❌ 客服消息受限
 
 ### 技术限制
-- 包大小限制 20MB
-- 单包 2MB（分包后单包 2MB）
+- 包大小：主包有上限（约 2MB），启用分包后整体上限更高（具体数值以[官方文档](https://developers.weixin.qq.com/miniprogram/dev/framework/subpackages.html)为准）
+- 大资源（图片/音频/词库）建议放云存储，运行时拉取
 - 不能 require 项目外文件
 - 异步 API 限制
 

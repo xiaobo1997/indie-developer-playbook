@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>线框原型预览 · 构思阶段看得见页面</title>
+<style>
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+    background: #f6f6f5;
+    color: #2c2c2a;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  header { padding: 20px 28px 12px; }
+  header h1 { font-size: 15px; font-weight: 500; margin: 0 0 4px; }
+  header p { margin: 0; color: #6b6b68; font-size: 12px; }
+  main {
+    display: grid;
+    grid-template-columns: minmax(320px, 1fr) minmax(420px, 480px);
+    gap: 20px;
+    padding: 8px 28px 32px;
+    align-items: start;
+  }
+  .panel {
+    background: #fff;
+    border: 0.5px solid rgba(0,0,0,0.15);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .panel-head {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 8px; flex-wrap: wrap;
+    padding: 10px 14px;
+    border-bottom: 0.5px solid rgba(0,0,0,0.12);
+    background: #fafaf9;
+    font-size: 12px;
+    color: #6b6b68;
+  }
+  textarea {
+    display: block; width: 100%; height: 560px;
+    border: 0; outline: none; resize: vertical;
+    padding: 14px;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 12.5px; line-height: 1.75;
+    color: #2c2c2a; background: #fff;
+  }
+  button {
+    font: inherit; font-size: 12px;
+    padding: 4px 10px;
+    border: 0.5px solid rgba(0,0,0,0.3);
+    border-radius: 6px;
+    background: transparent; color: #2c2c2a;
+    cursor: pointer;
+  }
+  button:hover { background: #f0f0ee; }
+  button.on { background: #2c2c2a; color: #fff; border-color: #2c2c2a; }
+  .tabs, .states { display: flex; gap: 6px; flex-wrap: wrap; }
+  .hint { padding: 10px 14px; font-size: 12px; color: #6b6b68; border-top: 0.5px solid rgba(0,0,0,0.12); }
+  .hint code {
+    font-family: ui-monospace, Menlo, monospace;
+    background: #f1efe8; padding: 1px 4px; border-radius: 3px;
+  }
+  .stage { padding: 20px; display: flex; justify-content: center; }
+  .phone {
+    width: 375px; height: 690px;
+    background: #fff;
+    border: 9px solid #26262a;
+    border-radius: 36px;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+    flex: none;
+  }
+  .navbar {
+    height: 44px; flex: none;
+    border-bottom: 0.5px solid #e3e3e0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 500; color: #2c2c2a;
+    background: #fafaf9;
+  }
+  .screen { flex: 1; overflow-y: auto; padding: 12px; background: #fff; }
+  .tabbar {
+    height: 52px; flex: none;
+    border-top: 0.5px solid #e3e3e0;
+    display: flex; background: #fafaf9;
+  }
+  .tabbar div {
+    flex: 1; display: flex; align-items: center; justify-content: center;
+    font-size: 11.5px; color: #8a8a86;
+    border-right: 0.5px solid #eee;
+  }
+  .tabbar div:last-child { border-right: 0; }
+  .tabbar div.on { color: #2c2c2a; font-weight: 500; }
+  .b { margin-bottom: 10px; }
+  .box {
+    border: 1px solid #d4d4d0; border-radius: 6px;
+    background: #fbfbfa; padding: 10px 12px;
+  }
+  .box.dashed { border-style: dashed; background: #fcfcfb; }
+  .lbl { font-size: 12px; color: #55554f; }
+  .lbl.strong { font-weight: 500; color: #2c2c2a; font-size: 13px; }
+  .bar { height: 9px; border-radius: 3px; background: #e6e6e2; }
+  .bar.w70 { width: 70%; }
+  .bar.w50 { width: 50%; }
+  .bar.w40 { width: 40%; }
+  .pill {
+    display: inline-block; padding: 3px 11px; margin: 0 6px 6px 0;
+    border: 1px solid #d4d4d0; border-radius: 999px;
+    font-size: 11.5px; color: #55554f; background: #fbfbfa;
+  }
+  .pill.on { background: #2c2c2a; color: #fff; border-color: #2c2c2a; }
+  .btn-main {
+    border: 1px solid #2c2c2a; background: #2c2c2a; color: #fff;
+    border-radius: 6px; padding: 9px 12px; text-align: center; font-size: 12.5px;
+  }
+  .btn-ghost {
+    border: 1px solid #d4d4d0; background: #fff; color: #55554f;
+    border-radius: 6px; padding: 8px 12px; text-align: center; font-size: 12.5px;
+  }
+  .row { display: flex; gap: 10px; align-items: center; }
+  .dot { width: 34px; height: 34px; border-radius: 50%; background: #e6e6e2; flex: none; }
+  .grow { flex: 1; min-width: 0; }
+  .imgbox {
+    border: 1px dashed #c9c9c4; border-radius: 6px; background: #fafaf9;
+    height: 96px; display: flex; align-items: center; justify-content: center;
+    color: #a3a39e; font-size: 11.5px;
+  }
+  .center-note {
+    border: 1px dashed #c9c9c4; border-radius: 6px; background: #fafaf9;
+    padding: 22px 14px; text-align: center; color: #8a8a86; font-size: 12px;
+  }
+  .center-note .btn-ghost { margin: 10px auto 0; max-width: 120px; }
+  .stack { display: flex; flex-direction: column; gap: 7px; }
+  .sep { height: 1px; background: #ececE8; margin: 12px 0; }
+  .shimmer { background: #ededE9; border-radius: 4px; }
+  @media (prefers-reduced-motion: no-preference) {
+    .shimmer { animation: pulse 1.4s ease-in-out infinite; }
+  }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.55; } }
+  @media (max-width: 900px) {
+    main { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>线框原型预览</h1>
+  <p>左侧写页面清单，右侧按真实手机比例看线框。切换状态检查空 / 加载 / 错误。内容自动存在浏览器本地。</p>
+</header>
+
+<main>
+  <section class="panel">
+    <div class="panel-head">
+      <span>页面清单</span>
+      <span class="tabs">
+        <button id="btn-reset">恢复示例</button>
+        <button id="btn-export">导出 pages.md</button>
+      </span>
+    </div>
+    <textarea id="src" spellcheck="false"></textarea>
+    <div class="hint">
+      <code># 页面名</code> 起一个新页面，下面用 <code>[类型] 内容</code> 写模块。
+      类型：<code>标题</code> <code>搜索</code> <code>标签</code> <code>列表</code> <code>卡片</code>
+      <code>表单</code> <code>图片</code> <code>文本</code> <code>按钮</code> <code>次要按钮</code>
+      <code>分割</code> <code>导航</code>。内容写 <code>x3</code> 表示重复 3 个，<code>/</code> 分隔多个项。
+    </div>
+  </section>
+
+  <section class="panel">
+    <div class="panel-head">
+      <span class="tabs" id="pagetabs"></span>
+      <span class="states" id="statebtns"></span>
+    </div>
+    <div class="stage">
+      <div class="phone">
+        <div class="navbar" id="navbar">—</div>
+        <div class="screen" id="screen"></div>
+        <div class="tabbar" id="tabbar" style="display:none"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+var KEY = 'wireframe-preview-src';
+var SAMPLE = [
+  '# 首页',
+  '[标题] 今天',
+  '[搜索] 搜索待办',
+  '[标签] 全部 / 待办 / 已完成',
+  '[列表] 待办事项 x4',
+  '[按钮] 添加新待办',
+  '[导航] 首页 / 统计 / 我的',
+  '',
+  '# 添加',
+  '[标题] 新建待办',
+  '[表单] 标题',
+  '[表单] 备注（选填）',
+  '[标签] 高 / 中 / 低',
+  '[按钮] 保存',
+  '[导航] 首页 / 统计 / 我的',
+  '',
+  '# 我的',
+  '[标题] 我的',
+  '[卡片] 用户信息',
+  '[列表] 设置项 x3',
+  '[导航] 首页 / 统计 / 我的'
+].join('\n');
+
+var el = {
+  src: document.getElementById('src'),
+  screen: document.getElementById('screen'),
+  navbar: document.getElementById('navbar'),
+  tabbar: document.getElementById('tabbar'),
+  tabs: document.getElementById('pagetabs'),
+  states: document.getElementById('statebtns')
+};
+
+var STATES = [
+  { id: 'normal', name: '正常' },
+  { id: 'empty', name: '空态' },
+  { id: 'loading', name: '加载' },
+  { id: 'error', name: '错误' }
+];
+
+var pageIndex = 0;
+var state = 'normal';
+var pages = [];
+
+function esc(s) {
+  return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function parse(text) {
+  var out = [];
+  var cur = null;
+  text.split('\n').forEach(function (raw) {
+    var line = raw.trim();
+    if (!line) return;
+    if (line.charAt(0) === '#') {
+      cur = { name: line.replace(/^#+\s*/, ''), blocks: [] };
+      out.push(cur);
+      return;
+    }
+    var m = line.match(/^\[([^\]]+)\]\s*(.*)$/);
+    if (m && cur) cur.blocks.push({ type: m[1].trim(), text: m[2].trim() });
+  });
+  return out;
+}
+
+function repeat(text) {
+  var m = text.match(/\s*x(\d+)\s*$/i);
+  if (!m) return { n: 1, label: text };
+  return { n: Math.max(1, Math.min(12, parseInt(m[1], 10))), label: text.replace(/\s*x\d+\s*$/i, '') };
+}
+
+function items(text) {
+  return text.split('/').map(function (s) { return s.trim(); }).filter(function (s) { return s.length; });
+}
+
+function renderBlock(b) {
+  var t = b.type;
+  var r = repeat(b.text);
+  var label = esc(r.label || '');
+  var isData = t === '列表' || t === '卡片' || t === '条目';
+
+  if (isData) {
+    if (state === 'empty') {
+      return '<div class="b"><div class="center-note">还没有' + (label || '内容') +
+        '<div class="btn-ghost">去添加</div></div></div>';
+    }
+    if (state === 'loading') {
+      var sk = '';
+      for (var i = 0; i < Math.min(r.n, 4); i++) {
+        sk += '<div class="box b shimmer"><div class="row">' +
+          '<div class="dot shimmer"></div><div class="grow stack">' +
+          '<div class="bar w70 shimmer"></div><div class="bar w40 shimmer"></div>' +
+          '</div></div></div>';
+      }
+      return sk;
+    }
+    if (state === 'error') {
+      return '<div class="b"><div class="center-note">加载失败，请检查网络' +
+        '<div class="btn-ghost">重试</div></div></div>';
+    }
+  }
+
+  if (t === '标题') {
+    return '<div class="b"><div class="lbl strong">' + (label || '标题') + '</div></div>';
+  }
+  if (t === '搜索') {
+    return '<div class="b"><div class="box">' +
+      '<div class="lbl" style="color:#a3a39e">' + (label || '搜索') + '</div></div></div>';
+  }
+  if (t === '标签') {
+    var ps = items(b.text);
+    var h = '<div class="b">';
+    ps.forEach(function (p, i) {
+      h += '<span class="pill' + (i === 0 ? ' on' : '') + '">' + esc(p) + '</span>';
+    });
+    return h + '</div>';
+  }
+  if (t === '列表') {
+    var li = '';
+    for (var j = 0; j < r.n; j++) {
+      li += '<div class="box b"><div class="row">' +
+        '<div class="dot"></div><div class="grow stack">' +
+        '<div class="bar w70"></div><div class="bar w50"></div>' +
+        '</div></div></div>';
+    }
+    return li;
+  }
+  if (t === '卡片') {
+    var cs = '';
+    for (var k = 0; k < r.n; k++) {
+      cs += '<div class="box b"><div class="lbl strong" style="margin-bottom:8px">' +
+        (label || '卡片') + '</div><div class="stack">' +
+        '<div class="bar w70"></div><div class="bar w40"></div></div></div>';
+    }
+    return cs;
+  }
+  if (t === '表单') {
+    return '<div class="b"><div class="box"><div class="lbl" style="color:#a3a39e">' +
+      (label || '输入项') + '</div></div></div>';
+  }
+  if (t === '图片') {
+    return '<div class="b"><div class="imgbox">' + (label || '图片占位') + '</div></div>';
+  }
+  if (t === '文本') {
+    return '<div class="b"><div class="stack"><div class="bar"></div>' +
+      '<div class="bar"></div><div class="bar w70"></div></div></div>';
+  }
+  if (t === '按钮') {
+    return '<div class="b"><div class="btn-main">' + (label || '主操作') + '</div></div>';
+  }
+  if (t === '次要按钮') {
+    return '<div class="b"><div class="btn-ghost">' + (label || '次操作') + '</div></div>';
+  }
+  if (t === '分割') {
+    return '<div class="sep"></div>';
+  }
+  return '<div class="b"><div class="box dashed"><div class="lbl">' + esc(b.text || b.type) + '</div></div></div>';
+}
+
+function render() {
+  pages = parse(el.src.value);
+
+  el.tabs.innerHTML = '';
+  pages.forEach(function (p, i) {
+    var b = document.createElement('button');
+    b.textContent = p.name;
+    if (i === pageIndex) b.className = 'on';
+    b.onclick = function () { pageIndex = i; render(); };
+    el.tabs.appendChild(b);
+  });
+  if (!pages.length) {
+    el.navbar.textContent = '—';
+    el.screen.innerHTML = '<div class="center-note">先用 # 起一个页面</div>';
+    el.tabbar.style.display = 'none';
+    return;
+  }
+  if (pageIndex >= pages.length) pageIndex = 0;
+
+  var page = pages[pageIndex];
+  el.navbar.textContent = page.name;
+
+  var nav = null;
+  var body = '';
+  page.blocks.forEach(function (b) {
+    if (b.type === '导航') { if (!nav) nav = b; return; }
+    body += renderBlock(b);
+  });
+  el.screen.innerHTML = body;
+
+  if (nav) {
+    el.tabbar.style.display = 'flex';
+    el.tabbar.innerHTML = '';
+    items(nav.text).forEach(function (n, i) {
+      var d = document.createElement('div');
+      d.textContent = n;
+      if (n === page.name) d.className = 'on';
+      el.tabbar.appendChild(d);
+    });
+  } else {
+    el.tabbar.style.display = 'none';
+  }
+}
+
+function renderStates() {
+  el.states.innerHTML = '';
+  STATES.forEach(function (s) {
+    var b = document.createElement('button');
+    b.textContent = s.name;
+    if (s.id === state) b.className = 'on';
+    b.onclick = function () { state = s.id; renderStates(); render(); };
+    el.states.appendChild(b);
+  });
+}
+
+function exportPages() {
+  var ps = parse(el.src.value);
+  if (!ps.length) return;
+  var out = ['| 页面 | 用户进来干什么 | 离开时完成了什么 | 需要哪些组件 |', '|---|---|---|---|'];
+  ps.forEach(function (p) {
+    var comps = p.blocks
+      .filter(function (b) { return b.type !== '导航' && b.type !== '标题'; })
+      .map(function (b) { return b.type; });
+    out.push('| ' + p.name + ' |  |  | ' + comps.join('、') + ' |');
+  });
+  out.push('', '> 由 templates/wireframe-preview.html 导出，补齐中间两列即可作为环节 03 的 pages.md。');
+  var blob = new Blob([out.join('\n')], { type: 'text/markdown' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'pages.md';
+  a.click();
+  URL.revokeObjectURL(a.href);
+}
+
+var timer = null;
+el.src.addEventListener('input', function () {
+  clearTimeout(timer);
+  timer = setTimeout(function () {
+    try { localStorage.setItem(KEY, el.src.value); } catch (e) {}
+    render();
+  }, 200);
+});
+
+document.getElementById('btn-reset').onclick = function () {
+  el.src.value = SAMPLE;
+  try { localStorage.setItem(KEY, SAMPLE); } catch (e) {}
+  pageIndex = 0;
+  render();
+};
+document.getElementById('btn-export').onclick = exportPages;
+
+var saved = null;
+try { saved = localStorage.getItem(KEY); } catch (e) {}
+el.src.value = saved || SAMPLE;
+renderStates();
+render();
+</script>
+
+</body>
+</html>

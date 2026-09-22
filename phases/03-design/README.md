@@ -5,23 +5,25 @@
 ## 你要做什么
 
 1. **画页面清单（1 小时）**：接环节 02 的页面结构粗稿，每页一行：页面名 / 进入方式 / 用户在这页完成什么 / 需要什么组件（列表？表单？弹窗？）。
-2. **低保真草图（1-2 小时）**：用 [Excalidraw](https://excalidraw.com/) 或纸笔，把关键页面（首页、核心功能页、空态）画成火柴盒图。只画结构不画样式——这是给环节 05 的施工图。
+2. **可预览线框（30 分钟 - 1 小时）**：用仓库自带的 [wireframe-preview.html](../../templates/wireframe-preview.html)，把页面清单写成标记语法，立刻按手机真实比例看到线框，并逐页切换空 / 加载 / 错误三种状态。**这一步的目标是「在写代码之前先看见页面」** ——纸笔草图或 [Excalidraw](https://excalidraw.com/) 也能画结构，但线框工具改起来快得多，快到你愿意先试三个方案再定。
 3. **选定组件库并「认领」样式（半天）**：小程序选 [TDesign](https://tdesign.tencent.com/) / [Vant Weapp](https://github.com/youzan/vant-weapp) / [WeUI](https://github.com/Tencent/weui-wxss) 之一（**只用一个**），Web 选 shadcn/ui。把它的默认样式当你的设计系统——你只做三个决定：主色、圆角、字体字号阶梯。
 4. **抄作业（1 天）**：在 [Mobbin](https://mobbin.com/) / 竞品里找同类页面（列表页、表单页、个人中心），截图对比你的草图，把成熟布局搬过来。**站在被验证过的交互上，不要发明新交互。**
 5. **写一页「设计约定」**：主色值、间距阶梯（如 8/16/24）、字号阶梯、空态/加载/错误的统一处理方式。这页给环节 05 的 AI 当视觉规约，保证全局一致。
 
 ## 产出物
 
-- `pages.md`：页面清单（页面 / 职责 / 组件映射）
-- 关键页低保真草图（图或 Excalidraw 链接）
+- `pages.md`：页面清单（页面 / 职责 / 组件映射）——可直接由线框工具导出
+- 可预览线框（`wireframe-preview.html` 里的页面清单，含三种状态）
 - `design-tokens.md`：一页设计约定（色、字、距、状态处理）
 
 ## 完成标准
 
 - [ ] 每个页面都能回答：用户进来干什么、离开时完成了什么
 - [ ] 每个页面都映射到了组件库的现成组件（列得出组件名）
-- [ ] 设计约定一页，且 3 个关键页面草图与组件库风格不冲突
+- [ ] 设计约定一页，且 3 个关键页面线框与组件库风格不冲突
 - [ ] 空态、加载、报错三种状态每页都有着落（新手最容易漏）
+- [ ] 三个关键页面都**按手机真实比例看过**，不是只在脑子里想过
+- [ ] 每页的空 / 加载 / 错误三态都在线框工具里切换确认过
 
 ## 常见陷阱
 
@@ -37,9 +39,28 @@
 - **真机优先**：微信开发者工具的渲染和真机有差异，设计约定里的字号、间距要在真机（尤其小屏 iOS）验证，别只在模拟器看。
 - **深色模式想清楚再做**：默认不做深色模式（跟随系统会出现不可控配色），要做得在 design-tokens 里专门定义——这是个明确决定，不是遗漏。
 
+## 真实参考（不用凭空想象）
+
+不知道界面该长什么样时，直接打开这几个。**都收的是 GitHub 仓库而不是设计网站**——网站会打不开，仓库地址不会失效。
+
+| 想看什么 | 打开这个 | 许可证 |
+|---|---|---|
+| 极简 Dashboard 卡片布局 | [plausible/analytics](https://github.com/plausible/analytics) ★29,157 | AGPL-3.0（**只看界面，别抄代码**） |
+| 完整 SaaS 流程（注册 → 预订 → 支付） | [calcom/cal.diy](https://github.com/calcom/cal.diy) ★48,567 | MIT |
+| 现代卡片式 + 多视角切换 | [twentyhq/twenty](https://github.com/twentyhq/twenty) ★57,119 | 自定义 |
+| 小程序组件（**直接 import 用**，本仓库主线） | [Tencent/tdesign-miniprogram](https://github.com/Tencent/tdesign-miniprogram) ★1,764 | MIT |
+
+**独立应用的界面就 6 种骨架**：Dashboard / 列表+详情 / 表单 / 设置 / 落地页 / 空态。先认出自己在用哪几种，再去对应的项目里看那一屏——别通读。
+
+完整 13 个项目、每种骨架「新手最容易做错什么」、许可证速查，见 [docs/03-ui/ui-reference-projects.md](../../docs/03-ui/ui-reference-projects.md)。
+
+**怎么最快看到界面**：① README 首屏截图（30 秒判断风格）→ ② 官方在线 demo → ③ `git clone` + Quick Start 本地跑（最慢但最真实，值得为你最想抄的那一个做一次）。
+
 ## 深入学习（角色知识库）
 
-- [docs/03-ui](../../docs/03-ui/ui-design.md)：UI/UX 角色详解
+- [docs/03-ui/README.md](../../docs/03-ui/README.md)：**UI 角色目录入口**——职责边界、独立跑完本环节的流程、真实参考、踩坑清单、带走清单
+- [docs/03-ui/prototype-first.md](../../docs/03-ui/prototype-first.md)：原型优先方法论——核心功能守门、扩展性边界、反花哨判定、一个人怎么找 UED（**做设计前先读这篇**）
+- [docs/03-ui](../../docs/03-ui/ui-design.md)：UI/UX 角色详解（设计系统、工具栈、组件库）
 - [docs/12-tools/stack.md](../../docs/12-tools/stack.md)：设计工具栈
 
 ## 本环节文件

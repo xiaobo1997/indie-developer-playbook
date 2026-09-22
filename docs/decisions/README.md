@@ -22,6 +22,7 @@ ADR（Architecture Decision Record）是一段短文档，记录：
 | [0002](0002-agent-agnostic-skills.md) | 已接受 | SKILL 采用纯 Markdown + AGENTS.md 约定 |
 | [0003](0003-miniprogram-first.md) | 已接受 | 第一平台主线：微信小程序 |
 | [0004](0004-external-references-policy.md) | 已接受 | 外部链接与事实性内容的收录政策 |
+| [0005](0005-roles-as-independent-skill-trees.md) | 提议中 | 角色 = 独立技能树，与任何 Agent 运行时解耦 |
 
 ## 什么时候该写一条 ADR？
 

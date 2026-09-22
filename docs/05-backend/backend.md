@@ -221,6 +221,12 @@ const payload = jwt.verify(token, SECRET);
 
 ---
 
+## 开源参考
+
+- [awesome-solo-founder-oss](https://github.com/princepal9120/awesome-solo-founder-oss)（★64，MIT）——按岗位罗列的一人创业开源工具栈，其中「数据库 / 鉴权 / 文件存储 / 邮件」四类直接对应本页选型，清单见 [12-tools](../12-tools/stack.md#开源替代一人创业的工具栈)
+
+---
+
 ## 推荐学习资源
 
 ### 书

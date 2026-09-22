@@ -23,3 +23,13 @@
 
 - [小程序开发框架](https://developers.weixin.qq.com/miniprogram/dev/framework/) —— 页面层级、TabBar 数量、包体积等规划期约束的权威来源（以官方为准）。
 - [小程序注册与主体说明](https://developers.weixin.qq.com/miniprogram/introduction/index.html) —— 个人/企业主体能力差异，PRD 阶段确认变现相关功能可行性。
+
+## 工具生态（本环节能拿来用的）
+
+> 列工具不是让你都用上，是让你知道**这个行业已经把哪些重复劳动做成了产品**。价格与可用性以官网为准（实测 2026-09-21 均可访问）。
+
+| 工具 | 干什么 | 什么时候用 |
+|---|---|---|
+| [Notion](https://www.notion.so) | PRD + 知识库一体 | 写 PRD、存访谈记录，独立开发者免费额度够用 |
+| [Linear](https://linear.app) | 任务卡（issue 跟踪） | 把 PRD 拆成任务卡；它的键盘流和默认字段很适合单人 |
+| [Excalidraw](https://excalidraw.com) | 手绘风格流程图 / 草图 | 画页面关系、数据流；比 Word 快，比 Figma 轻 |

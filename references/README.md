@@ -1,5 +1,7 @@
 # References - 精选参考资源
 
+> 🔎 找**开源仓库/工具/Skill 生态**？看 [open-source-repos.md](open-source-repos.md)——纯导航索引，已用 GitHub API 逐条验证真实性与 star 数。详细用法已按岗位拆进 `docs/` 各目录，其中 101 场创始人访谈的失败模式总表见 [docs/13-cases](../docs/13-cases/case-studies.md#数据101-场创始人访谈)。
+
 ## 📚 必读书单
 
 ### 心态与原则

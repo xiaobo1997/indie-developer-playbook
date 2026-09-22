@@ -25,3 +25,16 @@
 - [Excalidraw](https://github.com/excalidraw/excalidraw)（[在线版](https://excalidraw.com/)）—— 手绘风白板，画低保真草图/页面流程最快的选择，开源免费。
 - [Penpot](https://github.com/penpot/penpot) —— 开源 Figma 替代；真需要设计稿又不想要 Figma 订阅时用。
 - [iconify](https://icon-sets.iconify.design/) —— 聚合数千套免费 SVG 图标集，按名字搜索即取即用。
+
+## 工具生态（本环节能拿来用的）
+
+> 列工具不是让你都用上，是让你知道**这个行业已经把哪些重复劳动做成了产品**。
+> ⚠️ **v0 / Bolt / Figma 这类产出的是 Web 组件，不能用于微信小程序**（小程序是 WXML / WXSS）。做小程序请用上面的「小程序组件库」一组。
+> 完整清单与实测状态见 [docs/03-ui/ui-reference-projects.md](../../docs/03-ui/ui-reference-projects.md) E 组。
+
+| 工具 | 干什么 | 什么时候用 |
+|---|---|---|
+| [v0.dev](https://v0.dev) | 文本 → React / Tailwind 代码 | **首选**。产出是可改的代码，不是图 |
+| [Bolt.new](https://bolt.new) | 文本 → 完整可跑的全栈应用 | 想看到能点、能用的东西时 |
+| [Figma](https://www.figma.com) | 设计稿 + 原型 | **只做视觉确认，不做像素精修**（见 [ai-as-designer.md](../../docs/03-ui/ai-as-designer.md)） |
+| [Motiff](https://www.motiff.com) | 国内 AI 设计工具，Figma 平替 | 中文场景、不想用英文界面 |

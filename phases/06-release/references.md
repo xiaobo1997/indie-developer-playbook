@@ -25,3 +25,15 @@
 
 - [skills/devops/deploy-checklist](../../skills/devops/deploy-checklist.md) ✅ —— 通用部署检查清单
 - [docs/06-devops/devops.md](../../docs/06-devops/devops.md) —— 部署运维角色详解
+
+## 工具生态（本环节能拿来用的）
+
+> 列工具不是让你都用上，是让你知道**这个行业已经把哪些重复劳动做成了产品**。价格与可用性以官网为准（实测 2026-09-21 均可访问）。
+> 小程序发布走微信 MP 后台（见上），下面这组主要服务 **自建后端 / Web 路线**。
+
+| 工具 | 干什么 | 什么时候用 |
+|---|---|---|
+| [Vercel](https://vercel.com) | 前端部署 | Next.js 项目最省事的选择，推代码即部署 |
+| [Netlify](https://www.netlify.com) | 静态站点部署 | 落地页、文档站；表单和重定向开箱可用 |
+| [Cloudflare Pages](https://pages.cloudflare.com) | 静态站点托管 | 想省成本、要全球 CDN 时 |
+| [Sentry](https://sentry.io) | 错误监控 | **上线当天就该就位**；小程序另有免费的微信运维中心 |

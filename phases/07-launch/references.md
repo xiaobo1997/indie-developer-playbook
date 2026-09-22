@@ -26,3 +26,13 @@
 
 - [Indie Hackers](https://www.indiehackers.com/) —— 搜 "launch"：上百篇独立开发者发布复盘，可直接抄结构。
 - [docs/07-marketing](../../docs/07-marketing/marketing.md) —— 本仓库营销角色详解（渠道、内容日历、Landing Page 要素）。
+
+## 工具生态（本环节能拿来用的）
+
+> 列工具不是让你都用上，是让你知道**这个行业已经把哪些重复劳动做成了产品**。价格与可用性以官网为准（实测 2026-09-21 均可访问）。
+
+| 工具 | 干什么 | 什么时候用 |
+|---|---|---|
+| [Product Hunt](https://www.producthunt.com) | 产品发布平台 | 海外首发渠道；提前 2-4 周准备素材 |
+| [Hacker News](https://news.ycombinator.com) | 技术社区 | 技术向产品的高质量流量来源；标题要克制 |
+| [Beehiiv](https://www.beehiiv.com) | 邮件订阅（Newsletter） | 沉淀用户；公开构建时最值得攒的资产 |

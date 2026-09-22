@@ -9,6 +9,17 @@
 
 ## 全栈工具
 
+### 开源替代：一人创业的工具栈
+
+如果目标是**把 SaaS 月费压到接近 0**，下面两份清单已经按岗位把开源替代件列好了，不用自己一个个找：
+
+- [princepal9120/awesome-solo-founder-oss](https://github.com/princepal9120/awesome-solo-founder-oss)（★64，MIT）——按「验证 → 设计 → MVP → 鉴权 → 数据库 → 计费 → 分析 → 邮件 → 客服 → 增长 → 部署」逐岗罗列开源替代方案，核心主张是用开源件替换 SaaS 成本中心
+- [wasp-lang/open-saas](https://github.com/wasp-lang/open-saas)（★15,860，MIT）——React + Node + Prisma 的完整免费 SaaS boilerplate，自带鉴权、邮件发送、Stripe 订阅、管理后台。省掉的不只是钱，还有选型时间
+
+找其他领域的清单时，从 [sindresorhus/awesome](https://github.com/sindresorhus/awesome)（★507,256）进——它是所有 awesome 清单的元目录。
+
+star 数截至 2026-09-18。判断一个清单还值不值得看，看「最后更新时间」比看 star 数更准。
+
 ### 个人生产力
 
 #### 任务管理

@@ -15,6 +15,17 @@
 
 ## 营销渠道
 
+### 先问一句：你有分发策略吗
+
+101 场创始人访谈提炼的反模式里，「没有分发策略」和「自然流量没跑通就投付费广告」是两条独立的坑。前者是产品做完了才发现没人听得到，后者是用钱掩盖产品问题——**两者都加预算解决不了**。
+
+渠道不是上线之后才想的，见 [环节 07](../../phases/07-launch/README.md) 的弹药包与 4 周内容日历，以及 [13-cases 的反模式表](../13-cases/case-studies.md#7-个反模式)。
+
+### 开源参考
+
+- [solo-founder-playbook](https://github.com/yayashuxue/solo-founder-playbook) 的 `solo-growth`（★25）——基于 101 场访谈的增长策略检索，适合在渠道选择阶段对照
+- [rockscy/solo-skills](https://github.com/rockscy/solo-skills) 的 `launch-tweet`（★8，MIT，中英双语）——把一次发布写成一条推文，解决「上线当天不知道发什么」
+
 ### Tier 1：高 ROI（独立开发者首选）
 
 #### 1. Twitter/X

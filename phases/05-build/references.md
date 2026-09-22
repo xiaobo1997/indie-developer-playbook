@@ -25,3 +25,13 @@
 
 - [AGENTS.md 开放约定](https://agents.md) —— 项目里给 AI 立规矩的标准位置。
 - 本仓库 [docs/decisions/0002](../../docs/decisions/0002-agent-agnostic-skills.md) —— SKILL 六段结构与输出契约的约定；任务卡格式对齐它。
+
+## 工具生态（本环节能拿来用的）
+
+> 列工具不是让你都用上，是让你知道**这个行业已经把哪些重复劳动做成了产品**。价格与可用性以官网为准（实测 2026-09-21 均可访问）。
+
+| 工具 | 干什么 | 什么时候用 |
+|---|---|---|
+| [Cursor](https://cursor.com) | AI 编辑器 | 日常开发主力；配 AGENTS.md 效果更好 |
+| [Playwright](https://playwright.dev) | e2e 测试 | 只测核心链路（注册 → 主流程 → 支付），别全量铺 |
+| [Vitest](https://vitest.dev) | 单元测试 | 纯逻辑函数的测试，快、配置少 |

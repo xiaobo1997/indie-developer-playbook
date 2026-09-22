@@ -257,3 +257,12 @@ aws s3 cp /backup/db-*.sql.gz s3://my-backups/db/
 - 用开源替代商业服务
 - 避免云厂商锁定
 
+### 「用开源替代」具体到哪一项
+
+上面第三条最省钱，也最容易踩坑——替代品能不能扛住生产流量、有没有人维护，得逐个查。已经有人按岗位整理好了清单：
+
+- [awesome-solo-founder-oss](https://github.com/princepal9120/awesome-solo-founder-oss)（★64，MIT）——从数据库、鉴权到部署逐岗罗列开源替代方案
+- 完整说明见 [12-tools：开源替代一人创业的工具栈](../12-tools/stack.md#开源替代一人创业的工具栈)
+
+挑替代品时的硬标准：看仓库的「最后更新时间」而不是 star 数——超过 12 个月没动的，出了安全漏洞也没人补。
+

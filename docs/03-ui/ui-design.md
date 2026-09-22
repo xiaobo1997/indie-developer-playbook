@@ -1,5 +1,9 @@
 # 03 - UI/UX 设计
 
+> 想先看「怎么从一个想法走到可预览的页面」，读 [prototype-first.md](prototype-first.md)：核心功能守门 → 页面清单 → 可预览线框 → 组件库认领，四步。
+> 想知道「独立应用的 UI 到底长什么样」，读 [ui-reference-projects.md](ui-reference-projects.md)：6 种页面骨架 + 13 个经核实的开源参考项目（含 3 处链接纠正与许可证速查）。
+> 本页讲更细的设计系统与工具栈。
+
 ## 独立开发者的设计挑战
 
 ### 痛点

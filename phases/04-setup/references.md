@@ -31,3 +31,13 @@
 
 - [AGENTS.md 开放约定](https://agents.md) —— 为什么放一份 AGENTS.md 在项目根目录，以及主流代理如何读它。
 - [本仓库根目录 AGENTS.md](../../AGENTS.md) —— 直接复制改成你的项目版。
+
+## 工具生态（本环节能拿来用的）
+
+> 列工具不是让你都用上，是让你知道**这个行业已经把哪些重复劳动做成了产品**。价格与可用性以官网为准（实测 2026-09-21 均可访问）。
+
+| 工具 | 干什么 | 什么时候用 |
+|---|---|---|
+| [TDesign](https://tdesign.tencent.com) | 腾讯官方小程序组件库 | **小程序首选**，组件全、有维护。选定后别换 |
+| [Supabase](https://supabase.com) | 后端 BaaS（数据库 + 鉴权 + 存储） | Web 路线或需要自建后端时；免费额度够 MVP |
+| [Cloudflare Pages](https://pages.cloudflare.com) | 静态站点托管 | Web 路线的落地页 / 文档站，免费额度大方 |

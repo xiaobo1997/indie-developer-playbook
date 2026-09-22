@@ -44,6 +44,7 @@
 ### 🤖 想让 AI 帮你做？
 - 读 [AGENTS.md](AGENTS.md) - 仓库级代理说明
 - 对任意编码代理说：「阅读 phases/XX-xxx/SKILL.md 并执行」- 每个环节都有一个跨工具兼容的标准技能（见 [ADR-0002](docs/decisions/0002-agent-agnostic-skills.md)）
+- **多 Agent 协作**：说「多角色开发 X」→ Hermes 主编拆任务 → 派给 7 个角色 Agent 并行 → Review → 合入。完整 SOP 见 [skills/multi-agent/SOP.md](skills/multi-agent/SOP.md)
 
 ---
 

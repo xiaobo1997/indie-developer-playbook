@@ -43,18 +43,18 @@
 | 目录 | 角色 | 自包含 README |
 |---|---|---|
 | [00-overview](00-overview.md) | 总览 | —（单文件，不需要） |
-| [01-mindset](01-mindset/mindset.md) | 心态 | ⏳ 待补 |
-| [02-product](02-product/product-management.md) | PM | ⏳ 待补 |
-| [03-ui](03-ui/README.md) | UI/UX | ✅ **已建好（样板）** |
-| [04-frontend](04-frontend/frontend.md) | 前端 | ⏳ 待补 |
-| [05-backend](05-backend/backend.md) | 后端 | ⏳ 待补 |
-| [06-devops](06-devops/devops.md) | DevOps | ⏳ 待补 |
-| [07-marketing](07-marketing/marketing.md) | 营销 | ⏳ 待补 |
-| [08-support](08-support/support.md) | 客服 | ⏳ 待补 |
-| [09-finance](09-finance/finance.md) | 财务 | ⏳ 待补 |
-| [10-platforms](10-platforms/) | 平台专项 | ⏳ 待补（6 个子目录） |
-| [11-workflow](11-workflow/workflow.md) | 工作流 | ⏳ 待补 |
-| [12-tools](12-tools/stack.md) | 工具栈 | ⏳ 待补 |
-| [13-cases](13-cases/case-studies.md) | 案例 | ⏳ 待补 |
+| [01-mindset](01-mindset/README.md) | 心态 | ✅ |
+| [02-product](02-product/README.md) | PM | ✅ |
+| [03-ui](03-ui/README.md) | UI/UX | ✅ **（样板，含 3 篇深度文档）** |
+| [04-frontend](04-frontend/README.md) | 前端 | ✅ |
+| [05-backend](05-backend/README.md) | 后端 | ✅ |
+| [06-devops](06-devops/README.md) | DevOps | ✅ |
+| [07-marketing](07-marketing/README.md) | 营销 | ✅ |
+| [08-support](08-support/README.md) | 客服 | ✅ |
+| [09-finance](09-finance/README.md) | 财务 | ✅ |
+| [10-platforms](10-platforms/README.md) | 平台专项 | ✅（索引页；6 个平台目录各有完整指南） |
+| [11-workflow](11-workflow/README.md) | 工作流 | ✅ |
+| [12-tools](12-tools/README.md) | 工具栈 | ✅ |
+| [13-cases](13-cases/README.md) | 案例 | ✅ |
 
-补齐顺序建议：**从你最不熟的角色开始**——最不熟的才最需要「流程 + 真实参考」，熟的角色凭经验就能补。对后端转全栈的人来说，通常是 UI → 营销 → 前端 → 其余。
+深化方向：各 README 目前是「流程 + 契约 + 参考 + 坑」的自包含入口，**深度文档仍以单篇为主**。想继续加强某个角色，学 [03-ui](03-ui/README.md) 的做法——往目录里加深度文档（如 ai-as-designer.md），而不是把 README 写长。

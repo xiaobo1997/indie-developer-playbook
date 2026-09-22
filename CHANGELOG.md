@@ -6,6 +6,14 @@
 
 ## [Unreleased]
 
+### Added 新增（2026-09-22 · 角色层补齐）
+- **16 个角色技能补齐**（skills/ 全部 ✅，共 19 个）：product/prd-template、product/user-story、ui/design-review、ui/component-pattern、frontend/tailwind-setup、frontend/responsive-checklist、backend/api-design、backend/db-schema、devops/incident-response、devops/backup-strategy、marketing/launch-plan、marketing/landing-page、marketing/content-calendar、launch/product-hunt、launch/twitter-launch、launch/press-kit
+  - 全部遵循 ADR-0002 六段结构与输出契约；「先读 docs/XX」渐进披露；边界节含反向触发说明
+  - 与环节技能分层：环节 SKILL 管"什么时候做什么"（策略），角色技能管"单件事怎么做好"（执行）；重叠处已相互标注分工（如 launch-plan 渠道执行卡 vs phases/07 的策略层）
+- **12 个角色目录自包含 README**（对齐 docs/03-ui 样板的七要素：职责边界/独立流程/收交契约/真实参考/新手坑/文件索引/带走清单）：01-mindset、02-product、04-frontend、05-backend、06-devops、07-marketing、08-support、09-finance、11-workflow、12-tools、13-cases
+- **docs/10-platforms/README.md**：平台选择索引（6 平台对比 + 平台×环节接缝表）
+- 新增外部链接均经实测验证（可访问性 2026-09-22；notion.so、tailwindcss.com、react.dev、vuejs.org、ui.shadcn.com、heroicons.com、iconify.design、crisp.chat、stripe.com、paddle.com、lemonsqueezy.com、hoppscotch.io、vitest.dev、playwright.dev、uptimerobot.com、uniapp.dcloud.io 等）；shipfa.st 与 agentskills.io 本机网络不通（000），为知名一方站点，浏览器可访问，照常收录
+
 ### Added 新增
 - **`skills/multi-agent/`**：多 Agent 协作 SOP + 7 个角色技能（主编/前端/后端/DevOps/测试/调试/审查）
   - 参照 obra/superpowers + VoltAgent/awesome-agent-skills + CrewAI 模式
@@ -81,9 +89,10 @@
 - `skills/README.md`「多 Agent 协作技能」小节：清掉与 ADR-0005 / 修订版 SOP 矛盾的残留表述（「Hermes 主编 + 角色 Agent 并行」「主编：拆任务、派发、Review、合并」），对齐为「角色 = 独立技能树、任务拆分只产出任务卡不调度」
 
 ### 计划中
-- 补齐 `skills/` 目录中 15 个尚未创建的角色技能文件（见 [skills/README.md](skills/README.md) 状态标注，每个都附了可参考的外部实现）
+- ~~补齐 `skills/` 目录中尚未创建的角色技能文件~~（2026-09-22 已全部补齐 ✅，skills/README.md 状态表全绿）
+- 各角色 README 目前是自包含入口，可学 03-ui 的做法继续加深度文档（如 frontend 加一篇「AI 结对验收」）
 - 是否补 `skills/testing/` 目录：现有 7 角色无「测试」。按 ADR-0005 的口径，它若补也应是一棵独立技能树，而非运行时里的审查子进程——待 ADR-0005 拍板后决定
-- 考虑为 8 个 `phases/*/SKILL.md` 增加「反向触发（什么输入进来时不该用本技能）」字段——涉及 SKILL 格式变更，需先起草 ADR
+- 考虑为 8 个 `phases/*/SKILL.md` 增加「反向触发（什么输入进来时不该用本技能）」字段——涉及 SKILL 格式变更，需先起草 ADR（角色技能已在「边界」节以文字形式落地反向触发）
 
 ### Decisions 决策（详见 [docs/decisions/](docs/decisions/)）
 

@@ -57,52 +57,50 @@
 
 ### 🎯 产品 (Product)
 - [product/user-interview](product/user-interview.md) ✅ - 用户访谈流程
-- product/prd-template ⏳ - PRD 模板生成（先直接用 [templates/prd-template.md](../templates/prd-template.md)）
-- product/user-story ⏳ - 用户故事编写
+- [product/prd-template](product/prd-template.md) ✅ - PRD 模板生成（结构对齐 [templates/prd-template.md](../templates/prd-template.md)）
+- [product/user-story](product/user-story.md) ✅ - 用户故事编写（INVEST 自查）
 
 ### 🎨 UI
-- ui/design-review ⏳ - 设计评审
-- ui/component-pattern ⏳ - 组件设计模式
+- [ui/design-review](ui/design-review.md) ✅ - 设计评审（六维只报问题，配 docs/03-ui/ai-as-designer.md）
+- [ui/component-pattern](ui/component-pattern.md) ✅ - 组件映射（现成/组合/自写三类）
 
 ### 💻 前端 (Frontend)
-- frontend/tailwind-setup ⏳ - Tailwind 配置
-- frontend/responsive-checklist ⏳ - 响应式检查
+- [frontend/tailwind-setup](frontend/tailwind-setup.md) ✅ - Tailwind 配置（仅 Web，小程序不适用）
+- [frontend/responsive-checklist](frontend/responsive-checklist.md) ✅ - 多端适配检查
 
 ### ⚙️ 后端 (Backend)
 - [backend/security-checklist](backend/security-checklist.md) ✅ - 安全清单
-- backend/api-design ⏳ - RESTful API 设计
-- backend/db-schema ⏳ - 数据库 schema 设计
+- [backend/api-design](backend/api-design.md) ✅ - API 契约设计（REST + 云开发等价契约）
+- [backend/db-schema](backend/db-schema.md) ✅ - 数据库建模（含"明确不建的"）
 
 ### 🚀 DevOps
 - [devops/deploy-checklist](devops/deploy-checklist.md) ✅ - 部署检查
-- devops/incident-response ⏳ - 事故响应
-- devops/backup-strategy ⏳ - 备份策略
+- [devops/incident-response](devops/incident-response.md) ✅ - 事故响应 runbook
+- [devops/backup-strategy](devops/backup-strategy.md) ✅ - 备份策略（3-2-1 + 恢复演练）
 
 ### 📣 营销 (Marketing)
-- marketing/launch-plan ⏳ - 发布计划（先直接用 [phases/07-launch/SKILL.md](../phases/07-launch/SKILL.md)）
-- marketing/landing-page ⏳ - Landing Page
-- marketing/content-calendar ⏳ - 内容日历
+- [marketing/launch-plan](marketing/launch-plan.md) ✅ - 渠道执行计划（策略定稿用 [phases/07-launch/SKILL.md](../phases/07-launch/SKILL.md)）
+- [marketing/landing-page](marketing/landing-page.md) ✅ - 落地页文案与区块规划
+- [marketing/content-calendar](marketing/content-calendar.md) ✅ - 发布后持续内容系统
 
 ### 🚀 发布 (Launch)
-- launch/product-hunt ⏳ - Product Hunt 发布
-- launch/twitter-launch ⏳ - Twitter 公告
-- launch/press-kit ⏳ - 媒体资料
+- [launch/product-hunt](launch/product-hunt.md) ✅ - Product Hunt 发布 runbook（仅 Web）
+- [launch/twitter-launch](launch/twitter-launch.md) ✅ - 推特发布串（中英双版）
+- [launch/press-kit](launch/press-kit.md) ✅ - 一页式媒体资料包
 
-## 补齐 ⏳ 技能时，先去抄
+## 技能的参考来源（当年 ⏳ 时"先去抄"的出处，留作 provenance）
 
-每个 ⏳ 都别从零写，公开生态里基本都有现成实现：
+全部 19 个角色技能已补齐（3 个初始 + 16 个本轮新增）。以下保留各技能设计时参考的公开实现，感谢这些先行者：
 
-| 待补技能 | 可参考 | 来源 |
+| 技能 | 参考了 | 来源 |
 |---|---|---|
-| ui/design-review | `requesting-code-review` + `receiving-code-review`（学它把「提」和「收」拆成两个 skill） | Superpowers |
+| ui/design-review | `requesting-code-review` + `receiving-code-review`（「提」与「收」拆成两个 skill 的模式） | Superpowers |
 | frontend/tailwind-setup | Frontend Design、UI engineering | VoltAgent awesome-agent-skills |
 | frontend/responsive-checklist | UI engineering | VoltAgent |
 | backend/api-design | API design | VoltAgent |
 | backend/db-schema | database migration、data modeling | VoltAgent |
-| devops/incident-response | 暂无对口，参考 [docs/06-devops](../docs/06-devops/devops.md) 的监控章节自己写 | — |
-| devops/backup-strategy | 暂无对口，参考同上的备份策略章节 | — |
-| marketing/* | 直接用 [phases/07-launch/SKILL.md](../phases/07-launch/SKILL.md)，不必另建 | 本仓库 |
-| launch/* | 同上 | 本仓库 |
+| devops/incident-response、backup-strategy | 本仓库 docs/06-devops 的监控与备份章节 | 本仓库 |
+| marketing/* 、launch/* | [phases/07-launch/SKILL.md](../phases/07-launch/SKILL.md)（策略层）；角色技能专注执行层：launch-plan=渠道执行卡、content-calendar=发布后常态期 | 本仓库分层 |
 
 来源仓库、star 数与编排模式见 [docs/11-workflow：角色分工](../docs/11-workflow/workflow.md#角色分工静态技能树不是运行时编排)。
 
@@ -114,8 +112,9 @@
 
 是否要补 `skills/testing/` 目录，属于目录结构变更，需先起草 ADR（见 [docs/decisions](../docs/decisions/README.md)）。
 
-## 补齐 ⏳ 技能的规范
+## 新增 / 修订技能的规范
 
 1. 结构固定六段：任务目标 / 输入 / 输出 / 执行步骤 / 检查清单 / 边界（抄 [phases/05-build/SKILL.md](../phases/05-build/SKILL.md) 的格式）
 2. frontmatter 只写 `name` 与 `description`
-3. 完成后把本页对应 ⏳ 改成 ✅，并在 [CHANGELOG.md](../CHANGELOG.md) 记一笔
+3. 技能要薄，知识放 docs/：执行步骤里写明「先读 docs/XX」，渐进披露
+4. 完成后更新本页对应条目为 ✅，并在 [CHANGELOG.md](../CHANGELOG.md) 记一笔

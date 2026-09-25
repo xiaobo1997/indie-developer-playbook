@@ -56,3 +56,4 @@
 
 - [references.md](references.md)：官方发布/审核文档与监控工具链接
 - [SKILL.md](SKILL.md)：上线前检查交给 AI 的标准技能
+- 🚢 **多平台一条龙**：要把产品同时发到 Web/小程序/小游戏/iOS/Android/Steam？用 [skills/ship/SKILL.md](../../skills/ship/SKILL.md)（预检 → 构建部署 → 端到端验证 → 提审，含可行性预检）

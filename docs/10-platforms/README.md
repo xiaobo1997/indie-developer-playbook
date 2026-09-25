@@ -33,7 +33,7 @@
 | [ios/](ios/ios-app.md) | iOS App | ✅ 完整 |
 | [android/](android/android-app.md) | Android App | ✅ 完整 |
 | [web-saas/](web-saas/saas.md) | Web SaaS | ✅ 完整 |
-| [self-hosted/](self-hosted/self-hosted.md) | 自建服务器 | ✅ 完整 |
+| [self-hosted/](self-hosted/self-hosted.md) | 自建服务器 | ✅ 完整（+ [从零到 K8s 全流程](self-hosted/from-zero-to-k8s.md) + [人机协作执行 CheckList](self-hosted/checklist-zero-to-prod.md)） |
 
 规则类内容（审核、抽成、包体积、备案）随平台政策变化，一律以各目录引用的官方文档为准（[ADR-0004](../decisions/0004-external-references-policy.md)）。
 

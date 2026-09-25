@@ -57,6 +57,7 @@
 | 文件 | 什么时候读 |
 |---|---|
 | [frontend.md](frontend.md) | 完整方法论：技术栈选择、测试金字塔、性能优化 |
+| [multi-platform-build.md](multi-platform-build.md) | **要一次开发多端出包时**（iOS/Android/H5/小程序/Steam）：路线决策树 + 一条命令对照 + CI matrix |
 | [README.md](README.md)（本页） | 交接流程与契约 |
 
 ## 带走清单（独立使用本目录时）

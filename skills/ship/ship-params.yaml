@@ -1,0 +1,56 @@
+# ship-params.yaml —— 全平台发布参数与权限清单
+# 用法：只填你要发布的平台的段；🔒 行留空（AI 到对应步骤时给现场指引）
+# 通用规则：密码/私钥/secret 不进聊天不进 Git；AI 生成后写入目标系统，只汇报"已设置"
+
+meta:
+  product_name: ""            # 产品名
+  repo_url: ""                # git@github.com:xiaobo1997/<repo>.git
+  branch: "main"
+  version: ""                 # 本次发布版本号，如 1.0.0
+  platforms: []               # 目标平台，从下面选：web / miniprogram / minigame / ios / android / steam
+  budget_cap_cny: 0           # 本次发布允许的最大支出（AI 不得超出）
+
+# ── web：H5/Web 上线 ─────────────────────────────
+web:
+  deploy_route: ""            # k3s（见 from-zero-to-k8s）/ compose（见 self-hosted）/ vercel
+  domain: ""                  # app.example.com
+  params_file: ""             # 已填好的 deploy-params.yaml 路径（走部署清单）
+
+# ── miniprogram / minigame（共用管线） ───────────
+wechat:
+  appid: ""
+  type: ""                    # miniprogram / minigame
+  subject: ""                 # personal / enterprise（影响类目与支付）
+  category: ""                # 服务类目（小游戏必填：软著号见下一行）
+  software_copyright_no: ""   # 软著登记号（小游戏硬门槛，个人主体小游戏确认官方类目政策）
+  ci_private_key_path: ""     # 🔒 从 MP 后台下载的代码上传密钥文件路径
+  api_ip_whitelist_done: false # MP 后台已把调用方 IP 加白（一次性，👤）
+  secret: ""                  # 🔒 留空；现场写入目标系统
+  upload_version_desc: ""     # 版本描述（提审单要填，如实）
+
+# ── ios ────────────────────────────────────────
+ios:
+  bundle_id: ""
+  app_store_connect_account_ready: false  # $99/年 已购买（👤）
+  asc_api_key_path: ""        # 🔒 ASC → Users and Access → Integration 生成的 .p8
+  asc_key_id: ""
+  asc_issuer_id: ""
+  two_factor_ready: false     # 账号已开 2FA（👤，建 API Key 的前提）
+  privacy_policy_url: ""
+  screenshots_dir: ""         # 截图目录（可用真机截，AI 排版规格）
+
+# ── android（Google Play） ─────────────────────
+android:
+  package_name: ""
+  play_account_ready: false   # $25 已注册（👤）
+  service_account_json_path: ""  # 🔒 Play Console → 设置 → API 权限 关联的 JSON
+  privacy_policy_url: ""
+  closed_testing_ready: false # 新个人号：12 测试员×14 天是否已完成（以官方政策为准）
+
+# ── steam ─────────────────────────────────────
+steam:
+  app_id: ""                  # Steamworks 后台创建的 AppID（付费 $100/app 后才有，👤）
+  publisher_account_ready: false  # 合作方账号 + 税务面谈完成（👤）
+  steamcmd_guard_ready: false # Steam 令牌已配置、CLI 登录可用（👤 一次性）
+  build_script_path: ""       # 仓库内的构建/打包脚本（AI 可改可跑）
+  store_assets_dir: ""        # 商店页素材（胶囊图/头图/截图/预告片，规格见 platforms/steam.md）

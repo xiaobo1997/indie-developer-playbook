@@ -6,6 +6,55 @@
 
 ## [Unreleased]
 
+### Added 新增（2026-09-22 · 做什么端评估技能）
+- **`skills/product/evaluate-platforms.md`**：做什么端评估技能（评估 → 选端 → 交 ship 执行的闭环第一环）
+  - 端价值表速查：7 个端的触达/变现/费用/周期门槛/个人主体约束
+  - 跨端路线 trade-off 表：Taro/uni-app/Expo/Flutter/Capacitor/Tauri/Cocos/原生双端，每条含「得到/付出/什么时候会后悔」
+  - 输出契约：P0 首发 ≤2 端的组合推荐、路线选型与放弃项、每端完整路径（构建→打包→发布→部署→提审，引用 ship 管线不复制）、总账（费用+里程碑日期）、风险与前置
+  - 下游衔接：定案 → phases/02-spec 裁范围 → skills/ship/feasibility-check → ship 全流程执行；已有明确端与路线时反向触发跳过本技能
+- `skills/README.md` 产品节挂接；`docs/04-frontend/multi-platform-build.md` 顶部挂接评估技能入口
+
+### Added 新增（2026-09-22 · 多端一次构建指南）
+- **`docs/04-frontend/multi-platform-build.md`**：一次开发、多端打包（iOS/Android/H5/小程序/小游戏/Steam）
+  - 按现有代码形态的路线决策树（未开工/已有 Web/已有原生小程序/游戏四分支）；默认答案对齐 ADR-0003：Taro/uni-app 覆盖「小程序+H5+未来 App」
+  - 七条路线「一条命令」对照表（Flutter / Expo EAS（无 Mac 出 iOS 包）/ Taro / uni-app / Capacitor / Tauri 2.0 / Cocos）
+  - CI 一次 push 多端出包：GitHub Actions matrix 完整示例（android/web/ios 三 job 并行）+ EAS + fastlane 统一入口
+  - 各端现实表：构建可全自动 vs 必须有的账号/签名/费用；平台分支代码预留 10-15% 工作量的诚实提醒
+  - 与 skills/ship 各平台管线衔接（构建是 I-01/A-01/S-01 步）
+  - 新增外链已验证（2026-09-22）：docs.flutter.dev、docs.expo.dev、capacitorjs.com、tauri.app、cocos.com、flutter.cn 均 200
+
+### Added 新增（2026-09-22 · 全平台一条龙发布技能）
+- **`skills/ship/`**（10 个文件）：「代码 + 权限」进，「逐平台提审 + 端到端验证证据」出
+  - `SKILL.md`：主编排技能（先预检后动手；构建验证 → 逐平台管线 → E2E 收尾 → 总报告）；不垫付、不代持、不绕审核
+  - `feasibility-check.md`：可行性预检技能（硬门槛逐项核查 + 代码可构建性实测；blocked 必附补办路径：缺什么/去哪办/多久/多少钱）
+  - `ship-params.yaml`：全平台参数与权限清单模板（🔒 敏感项现场处理规则）
+  - `platforms/` 六平台管线（各含硬门槛表 / 自动化通道 / 流水线 / E2E 验收 / 人工停机点）：web-h5（无审核）、miniprogram（**全 API**：ci.upload → submit_audit → get_auditstatus → release）、minigame（同管线 + 软著 1-3 个月硬门槛，建议并行启动）、ios（fastlane + ASC API 全自动到提审）、android（fastlane supply；新个人号 12 测试员×14 天闭测变数；国内商店人工协助层）、steam（steamcmd 构建全自动；$100/AppID + 商店页人工层）
+  - 关键 API 通道已实测（2026-09-22）：微信 submitAudit/getAuditStatus（200）、ASC API、fastlane、steamcmd、Steamworks 上传文档均可达；Google 两个文档站本机 000（一方站点照常收录）
+- `skills/README.md` 新增「🚢 一条龙发布」节；`phases/06-release/README.md` 挂接 ship 技能
+
+### Changed 变更（2026-09-22 · API 优先执行架构）
+- `checklist-zero-to-prod.md` 新增「自动化通道：能 API 的绝不开浏览器」：执行架构定为 CLI > OpenAPI > 浏览器兜底（规避 React 控制台的浏览器自动化脆弱性）
+  - 通道表：aliyun/tccli（ECS 买卖、安全组、DNS、镜像仓）、gh（仓库/Secrets/Actions）、kubectl/helm（集群内）、微信小程序管理 API（modify_domain 改合法域名，前置人配 IP 白名单）
+  - 真正绕不开人的收敛为一次性 4 件：账号实名充值 / ICP 备案 / MP 扫码+白名单 / 域名实名；此后建机到上线全程 AI 无头执行
+  - A-02/A-03（RAM 子账号+AK）、B-02（API 建机 RunInstances）、D-04（安全组 API）、H-01/H-03/H-05（DNS 与小程序域名走 API）相应改写；停机点三类改四类
+  - 新增外链已验证（2026-09-22）：微信 modify-domain 文档、aliyun CLI 安装、tccli 文档、ECS RunInstances 文档
+
+### Changed 变更（2026-09-22 · CI 平台选型）
+- `from-zero-to-k8s.md` 阶段 10 新增「代码仓库与 CI 平台怎么选」：GitHub+Actions（默认）/ GitLab.com / GitLab CE 自托管（4G+ 内存，别与 K3s 同机）/ 国内一站式（云效、CODING、Gitee Go）对比表；给出跨境部署的解法——自托管 runner 装在部署服务器（deploy job 本地执行，零延迟不限时长）
+
+### Added 新增（2026-09-22 · 人机协作部署清单）
+- **`docs/10-platforms/self-hosted/checklist-zero-to-prod.md`**：部署配置清单 + 可执行 CheckList（人机协作版）
+  - 参数表模板（deploy-params.yaml，产品/云/域名/镜像仓/微信/告警/预算，🔒 敏感项留空现场处理）
+  - A-J 十组共 44 项 CheckList，逐项标注执行者（👤人：支付/实名/扫码/备案；🤖AI：终端/配置/浏览器代操作；👥协作）+ 完成标准
+  - 敏感信息规则（密码在服务器上生成入 Secret、不经聊天不经 Git）；断点续跑（「从 D-03 继续」）；发起执行的 prompt 模板（含预算上限与破坏性命令保护）
+  - 与 from-zero-to-k8s.md 分工：那篇是"为什么与怎么做"，本篇是"照着跑的执行骨架"
+
+### Added 新增（2026-09-22 · 部署全流程指南）
+- **`docs/10-platforms/self-hosted/from-zero-to-k8s.md`**：从购买云服务器到用户用上 App 的完整按序路线（10 阶段）
+  - 购买决策（国内/海外、规格 4C8G 起步）→ 域名 + ICP 备案 → 服务器初始化（SSH/ufw/fail2ban/内核参数）→ 前后端 Docker 打包与镜像仓库 → K3s 安装（单机实用主义，注明与 kubeadm 的取舍）→ 中间件（bitnami postgresql/redis，含托管 RDS 决策表）→ 配置初始化（Secret/ConfigMap/迁移 Job/探针/资源限额）→ 前后端 Deployment + Ingress + cert-manager HTTPS → 域名解析与白名单收口（安全组核对 + 小程序合法域名）→ GitHub Actions CI/CD 与上线验收清单
+  - 含全程成本参考表、新手 10 坑（海外服务器做小程序、数据库裸奔公网、latest tag 无法回滚等）
+  - 新增外链已验证（2026-09-22）：docs.k3s.io、kubernetes.io、helm.sh、min.io、aliyun.com、cloud.tencent.com、docs.docker.com；cert-manager.io / artifacthub.io / docker.io / k3s.io 本机网络不通（000，Cloudflare 系），知名官方站点照常收录
+
 ### Added 新增（2026-09-22 · 角色层补齐）
 - **16 个角色技能补齐**（skills/ 全部 ✅，共 19 个）：product/prd-template、product/user-story、ui/design-review、ui/component-pattern、frontend/tailwind-setup、frontend/responsive-checklist、backend/api-design、backend/db-schema、devops/incident-response、devops/backup-strategy、marketing/launch-plan、marketing/landing-page、marketing/content-calendar、launch/product-hunt、launch/twitter-launch、launch/press-kit
   - 全部遵循 ADR-0002 六段结构与输出契约；「先读 docs/XX」渐进披露；边界节含反向触发说明

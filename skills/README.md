@@ -53,12 +53,19 @@
 
 完整 SOP 见 [multi-agent/SOP.md](multi-agent/SOP.md)。
 
+## 🚢 一条龙发布（多平台）
+
+- [ship/SKILL.md](ship/SKILL.md) ✅ - **主编排**：给代码 + 权限 → 预检 → 逐平台构建/部署/E2E/提审 → 带证据报告
+- [ship/feasibility-check.md](ship/feasibility-check.md) ✅ - 可行性预检（强制第一关，先 go/no-go 再动手）
+- 平台管线：[ship/platforms/](ship/platforms/)（web-h5 / miniprogram / minigame / ios / android / steam）+ [ship/ship-params.yaml](ship/ship-params.yaml)（参数与权限模板）
+
 ## 角色技能列表
 
 ### 🎯 产品 (Product)
 - [product/user-interview](product/user-interview.md) ✅ - 用户访谈流程
 - [product/prd-template](product/prd-template.md) ✅ - PRD 模板生成（结构对齐 [templates/prd-template.md](../templates/prd-template.md)）
 - [product/user-story](product/user-story.md) ✅ - 用户故事编写（INVEST 自查）
+- [product/evaluate-platforms](product/evaluate-platforms.md) ✅ - **做什么端评估**：端组合推荐 + 跨端路线 trade-off + 每端完整路径与总账（定案后交给 ship 执行）
 
 ### 🎨 UI
 - [ui/design-review](ui/design-review.md) ✅ - 设计评审（六维只报问题，配 docs/03-ui/ai-as-designer.md）
